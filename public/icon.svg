@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Know Your Right">
+  <rect width="512" height="512" rx="96" fill="#FBFBF9"/>
+  <g fill="none" stroke="#0F5132" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="256" cy="140" r="12" fill="#0F5132" stroke="none"/>
+    <line x1="256" y1="152" x2="256" y2="392"/>
+    <line x1="206" y1="392" x2="306" y2="392"/>
+    <line x1="136" y1="164" x2="376" y2="164"/>
+    <!-- left pan -->
+    <line x1="136" y1="164" x2="106" y2="212"/>
+    <line x1="136" y1="164" x2="166" y2="212"/>
+    <path d="M98 212 Q136 250 174 212"/>
+    <!-- right pan -->
+    <line x1="376" y1="164" x2="346" y2="212"/>
+    <line x1="376" y1="164" x2="406" y2="212"/>
+    <path d="M338 212 Q376 250 414 212"/>
+  </g>
+</svg>

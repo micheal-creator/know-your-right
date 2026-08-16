@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    /* Comfortable default reading size for accessibility */
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-heading text-ink;
+    line-height: 1.2;
+  }
+
+  /* Visible, high-contrast focus ring for keyboard users */
+  :where(a, button, input, select, textarea, [tabindex]):focus-visible {
+    outline: 3px solid #0f5132;
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  /* Respect reduced-motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer components {
+  .container-app {
+    @apply mx-auto w-full max-w-content px-4;
+  }
+
+  /* Minimum 44px tap targets */
+  .tap {
+    @apply min-h-[44px] min-w-[44px];
+  }
+
+  .btn {
+    @apply tap inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 font-sans font-semibold transition-colors;
+  }
+
+  .btn-primary {
+    @apply btn bg-accent text-white hover:bg-accent-hover;
+  }
+
+  .btn-outline {
+    @apply btn border border-line bg-card text-ink hover:border-accent hover:text-accent;
+  }
+
+  .card {
+    @apply rounded-xl2 border border-line bg-card shadow-card;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-line bg-card px-3 py-1 text-sm text-muted;
+  }
+
+  .link-accent {
+    @apply font-semibold text-accent underline-offset-2 hover:underline;
+  }
+}

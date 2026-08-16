@@ -1,0 +1,64 @@
+import {
+  Scale,
+  Search,
+  ScrollText,
+  Car,
+  Landmark,
+  Home,
+  Briefcase,
+  Building2,
+  ShoppingBag,
+  Bookmark,
+  BookmarkCheck,
+  ChevronRight,
+  ArrowLeft,
+  ArrowRight,
+  Phone,
+  MessageCircle,
+  ShieldCheck,
+  Star,
+  Clock,
+  Info,
+  AlertTriangle,
+  X,
+  MapPin,
+  Gavel,
+  FileText,
+  BookOpen,
+} from 'lucide-react'
+
+const MAP = {
+  Scale,
+  Search,
+  ScrollText,
+  Car,
+  Landmark,
+  Home,
+  Briefcase,
+  Building2,
+  ShoppingBag,
+  Bookmark,
+  BookmarkCheck,
+  ChevronRight,
+  ArrowLeft,
+  ArrowRight,
+  Phone,
+  MessageCircle,
+  ShieldCheck,
+  Star,
+  Clock,
+  Info,
+  AlertTriangle,
+  X,
+  MapPin,
+  Gavel,
+  FileText,
+  BookOpen,
+}
+
+// Simple line-icon renderer. `name` maps to a lucide icon; everything else is
+// passed straight through (size, className, strokeWidth, aria-hidden, ...).
+export default function Icon({ name, size = 20, strokeWidth = 1.75, ...rest }) {
+  const Cmp = MAP[name] || FileText
+  return <Cmp size={size} strokeWidth={strokeWidth} aria-hidden="true" {...rest} />
+}
