@@ -25,6 +25,21 @@ import {
   Gavel,
   FileText,
   BookOpen,
+  LayoutDashboard,
+  Users,
+  Inbox,
+  MessageSquare,
+  LifeBuoy,
+  LogOut,
+  Plus,
+  Trash2,
+  Save,
+  Send,
+  Pencil,
+  RefreshCw,
+  ChevronLeft,
+  CheckCircle2,
+  Settings,
 } from 'lucide-react'
 
 const MAP = {
@@ -54,6 +69,21 @@ const MAP = {
   Gavel,
   FileText,
   BookOpen,
+  LayoutDashboard,
+  Users,
+  Inbox,
+  MessageSquare,
+  LifeBuoy,
+  LogOut,
+  Plus,
+  Trash2,
+  Save,
+  Send,
+  Pencil,
+  RefreshCw,
+  ChevronLeft,
+  CheckCircle2,
+  Settings,
 }
 
 // Simple line-icon renderer. `name` maps to a lucide icon; everything else is

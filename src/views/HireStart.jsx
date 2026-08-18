@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import Icon from '../components/Icon.jsx'
 import { ISSUE_CATEGORIES, NIGERIAN_STATES, PRIVACY } from '../data/meta.js'
+import { createCase } from '../services/cases.js'
 import { cn } from '../lib/format.js'
 
 const MAX_DESC = 300
@@ -16,6 +17,7 @@ export default function HireStart() {
   const [state, setState] = useState('')
   const [description, setDescription] = useState('')
   const [name, setName] = useState('')
+  const [contact, setContact] = useState('')
   const [touched, setTouched] = useState(false)
 
   const valid = issue && state
@@ -24,7 +26,8 @@ export default function HireStart() {
     e.preventDefault()
     setTouched(true)
     if (!valid) return
-    const qp = new URLSearchParams({ issue, state })
+    const created = createCase({ issue, state, description, name, contact })
+    const qp = new URLSearchParams({ issue, state, case: created.id })
     if (description.trim()) qp.set('desc', description.trim())
     if (name.trim()) qp.set('name', name.trim())
     navigate(`/hire/matches?${qp.toString()}`)
@@ -129,6 +132,21 @@ export default function HireStart() {
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="So the lawyer knows who they’re speaking to"
+          className="tap w-full rounded-xl2 border border-line bg-card px-4 py-3 text-base focus:border-accent"
+        />
+      </div>
+
+      {/* Contact */}
+      <div className="space-y-1.5">
+        <label htmlFor="contact" className="block font-semibold text-ink">
+          Phone / WhatsApp <span className="font-normal text-faint">(optional)</span>
+        </label>
+        <input
+          id="contact"
+          inputMode="tel"
+          value={contact}
+          onChange={(e) => setContact(e.target.value)}
+          placeholder="e.g. 0803 000 0000 — so a lawyer can reach you"
           className="tap w-full rounded-xl2 border border-line bg-card px-4 py-3 text-base focus:border-accent"
         />
       </div>

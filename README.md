@@ -105,6 +105,39 @@ This is **general legal information, not legal advice.**
 
 ---
 
+## Admin console & CMS
+
+Open **`/admin`** (linked from the About page, or go to `…/#/admin`).
+
+- **Dashboard** — counts of content, lawyers awaiting review, new cases, open chats.
+- **Content** — add / edit / delete Constitution, powers and traffic entries; edits show live in the app; "Reset" restores the built-in defaults.
+- **Lawyers** — approve / suspend, edit, add or remove directory entries (only *approved* lawyers appear to users).
+- **Cases** — every Hire-a-Lawyer request lands here with a status workflow (new → reviewing → matched → closed) and an internal note.
+- **Support** — reply to user conversations in a live chat; mark resolved / reopen.
+
+> **Demo mode:** with no backend connected, any email/password signs you in as
+> admin and all data is stored in this browser (open the app in one tab and
+> `/admin` in another to see live support replies). This is for exploration only.
+
+## Backend (Supabase) — optional, plug-and-play
+
+The app + CMS run browser-local until you connect Supabase; then they use a real
+multi-user backend with server-enforced admin access (RLS) and realtime chat.
+
+1. Create a project at [supabase.com](https://supabase.com).
+2. **SQL Editor → New query →** paste [`supabase/schema.sql`](supabase/schema.sql) → **Run**.
+3. In **Auth → Providers**, enable **Anonymous sign-ins** (so support chat works for guests).
+4. **Project Settings → API** → copy the **Project URL** and **anon public** key.
+5. Set env vars (`.env.local` locally; Vercel/host env for prod):
+   ```
+   VITE_SUPABASE_URL=https://<ref>.supabase.co
+   VITE_SUPABASE_ANON_KEY=<anon key>
+   ```
+6. Sign up once, then make yourself admin:
+   ```sql
+   update public.profiles set is_admin = true where email = 'you@example.com';
+   ```
+
 ## Roadmap (summary)
 
 - **Phase 1 (MVP, done here):** Constitution, Traffic, Federal/State powers,

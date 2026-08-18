@@ -74,13 +74,22 @@ export default function Layout() {
       <header className="sticky top-0 z-20 border-b border-line bg-paper/90 backdrop-blur">
         <div className="container-app flex h-14 items-center justify-between">
           <Brand />
-          <NavLink
-            to="/about"
-            aria-label="About and disclaimer"
-            className="tap grid place-items-center rounded-lg px-2 text-muted hover:text-accent"
-          >
-            <Icon name="Info" size={22} />
-          </NavLink>
+          <div className="flex items-center gap-0.5">
+            <NavLink
+              to="/support"
+              aria-label="Support"
+              className="tap grid place-items-center rounded-lg px-2 text-muted hover:text-accent"
+            >
+              <Icon name="LifeBuoy" size={22} />
+            </NavLink>
+            <NavLink
+              to="/about"
+              aria-label="About and disclaimer"
+              className="tap grid place-items-center rounded-lg px-2 text-muted hover:text-accent"
+            >
+              <Icon name="Info" size={22} />
+            </NavLink>
+          </div>
         </div>
       </header>
 

@@ -1,7 +1,9 @@
 import { useMemo } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import Icon from '../components/Icon.jsx'
-import { LAWYERS, initials } from '../data/lawyers.js'
+import { initials } from '../data/lawyers.js'
+import { approvedLawyers } from '../services/lawyers.js'
+import { setCaseStatus } from '../services/cases.js'
 import { ISSUE_CATEGORIES } from '../data/meta.js'
 
 function issueLabel(id) {
@@ -18,12 +20,13 @@ function Stars({ rating }) {
 }
 
 function buildMatches(issue, state) {
-  const exact = LAWYERS.filter(
+  const all = approvedLawyers()
+  const exact = all.filter(
     (l) => (!issue || l.categories.includes(issue)) && (!state || l.states.includes(state)),
   )
   if (exact.length) return { list: exact, note: null }
 
-  const partial = LAWYERS.filter(
+  const partial = all.filter(
     (l) => (state && l.states.includes(state)) || (issue && l.categories.includes(issue)),
   )
   if (partial.length)
@@ -33,12 +36,12 @@ function buildMatches(issue, state) {
     }
 
   return {
-    list: [...LAWYERS].sort((a, b) => b.rating - a.rating).slice(0, 3),
+    list: [...all].sort((a, b) => b.rating - a.rating).slice(0, 3),
     note: 'No exact match yet — here are highly-rated lawyers who may be able to help or refer you.',
   }
 }
 
-function LawyerCard({ lawyer, message }) {
+function LawyerCard({ lawyer, message, onContact }) {
   const wa = `https://wa.me/${lawyer.whatsapp}?text=${encodeURIComponent(message)}`
   const tel = `tel:+${lawyer.phone}`
 
@@ -85,10 +88,10 @@ function LawyerCard({ lawyer, message }) {
       </p>
 
       <div className="mt-4 grid grid-cols-2 gap-2">
-        <a href={tel} className="btn-outline">
+        <a href={tel} onClick={onContact} className="btn-outline">
           <Icon name="Phone" size={18} /> Call
         </a>
-        <a href={wa} target="_blank" rel="noreferrer" className="btn-primary">
+        <a href={wa} onClick={onContact} target="_blank" rel="noreferrer" className="btn-primary">
           <Icon name="MessageCircle" size={18} /> WhatsApp
         </a>
       </div>
@@ -102,8 +105,13 @@ export default function HireMatches() {
   const state = params.get('state') || ''
   const desc = params.get('desc') || ''
   const name = params.get('name') || ''
+  const caseId = params.get('case') || ''
 
   const { list, note } = useMemo(() => buildMatches(issue, state), [issue, state])
+
+  function markMatched() {
+    if (caseId) setCaseStatus(caseId, 'matched')
+  }
 
   const message =
     `Hello, I found you on Know Your Right. I need help with ${issueLabel(issue).toLowerCase()}` +
@@ -142,7 +150,7 @@ export default function HireMatches() {
 
       <div className="space-y-4">
         {list.map((lawyer) => (
-          <LawyerCard key={lawyer.id} lawyer={lawyer} message={message} />
+          <LawyerCard key={lawyer.id} lawyer={lawyer} message={message} onContact={markMatched} />
         ))}
       </div>
 

@@ -4,7 +4,9 @@ import Icon from '../components/Icon.jsx'
 import BookmarkButton from '../components/BookmarkButton.jsx'
 import Disclaimer from '../components/Disclaimer.jsx'
 import LastVerified from '../components/LastVerified.jsx'
-import { TRAFFIC, TRAFFIC_META } from '../data/traffic.js'
+import { TRAFFIC_META } from '../data/traffic.js'
+import { entries, getTraffic } from '../store/contentStore.js'
+import { useCollection } from '../services/useStore.js'
 import { formatNaira, normalize } from '../lib/format.js'
 
 const SEVERITIES = [
@@ -32,14 +34,30 @@ export default function TrafficFines() {
   const [severity, setSeverity] = useState('all')
   const [sort, setSort] = useState('offence')
 
+  useCollection(entries)
+  const all = useMemo(
+    () =>
+      getTraffic().map((e) => ({
+        id: e.id,
+        offence: e.title,
+        code: e.code,
+        summary: e.summary,
+        fine: e.fine,
+        points: e.points,
+        severity: e.severity,
+      })),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [entries.getSnapshot()],
+  )
+
   const rows = useMemo(() => {
     const nq = normalize(q)
-    return TRAFFIC.filter((t) => {
+    return all.filter((t) => {
       if (severity !== 'all' && t.severity !== severity) return false
       if (!nq) return true
       return normalize(`${t.offence} ${t.code} ${t.summary}`).includes(nq)
     }).sort(SORTS[sort])
-  }, [q, severity, sort])
+  }, [all, q, severity, sort])
 
   return (
     <div className="space-y-5">

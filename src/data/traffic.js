@@ -57,7 +57,7 @@ export const TRAFFIC_ENTRIES = TRAFFIC.map((t) => ({
   category: 'traffic',
   title: t.offence,
   reference: `FRSC code ${t.code}`,
-  summary: `${t.summary} Fine: ₦${t.fine.toLocaleString('en-NG')}. Penalty points: ${t.points}.`,
+  summary: t.summary,
   original: null,
   tags: ['frsc', 'traffic', 'fine', t.code.toLowerCase(), t.severity],
   lastVerified: VERIFIED,

@@ -56,7 +56,13 @@ export default function About() {
         </Link>
       </div>
 
-      <p className="pt-2 text-center text-[12px] text-faint">
+      <p className="pt-2 text-center text-[13px]">
+        <Link to="/support" className="link-accent">Contact support</Link>
+        <span className="text-faint"> · </span>
+        <Link to="/admin" className="link-accent">Admin console</Link>
+      </p>
+
+      <p className="text-center text-[12px] text-faint">
         {APP.name} · v{__APP_VERSION__} · Works offline once loaded.
       </p>
     </div>
