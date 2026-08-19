@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Menu, LifeBuoy, Info, Shield } from 'lucide-react'
+import { Menu, LifeBuoy, Info, Shield, Mic } from 'lucide-react'
 
 const ITEMS = [
+  { to: '/recordings', label: 'Recordings', icon: Mic },
   { to: '/support', label: 'Support', icon: LifeBuoy },
   { to: '/about', label: 'About', icon: Info },
   { to: '/admin', label: 'Admin', icon: Shield },

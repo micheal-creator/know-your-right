@@ -10,6 +10,7 @@ import HireStart from './views/HireStart.jsx'
 import HireMatches from './views/HireMatches.jsx'
 import Support from './views/Support.jsx'
 import SupportThread from './views/SupportThread.jsx'
+import Recordings from './views/Recordings.jsx'
 import About from './views/About.jsx'
 import NotFound from './views/NotFound.jsx'
 
@@ -37,6 +38,7 @@ export default function App() {
         <Route path="hire/matches" element={<HireMatches />} />
         <Route path="support" element={<Support />} />
         <Route path="support/:id" element={<SupportThread />} />
+        <Route path="recordings" element={<Recordings />} />
         <Route path="about" element={<About />} />
         <Route path="*" element={<NotFound />} />
       </Route>

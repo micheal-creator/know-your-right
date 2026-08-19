@@ -4,7 +4,8 @@
 
 const DB_NAME = 'kyr-recordings'
 const STORE = 'recordings'
-const VERSION = 1
+const SETTINGS = 'settings'
+const VERSION = 2
 
 function openDB() {
   return new Promise((resolve, reject) => {
@@ -18,9 +19,43 @@ function openDB() {
       if (!db.objectStoreNames.contains(STORE)) {
         db.createObjectStore(STORE, { keyPath: 'id' })
       }
+      if (!db.objectStoreNames.contains(SETTINGS)) {
+        db.createObjectStore(SETTINGS, { keyPath: 'key' })
+      }
     }
     req.onsuccess = () => resolve(req.result)
     req.onerror = () => reject(req.error)
+  })
+}
+
+// Small key/value settings (used to persist the chosen save-folder handle).
+export async function getSetting(key) {
+  const db = await openDB()
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(SETTINGS, 'readonly')
+    const req = tx.objectStore(SETTINGS).get(key)
+    req.onsuccess = () => resolve(req.result ? req.result.value : null)
+    req.onerror = () => reject(req.error)
+  })
+}
+
+export async function setSetting(key, value) {
+  const db = await openDB()
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(SETTINGS, 'readwrite')
+    tx.objectStore(SETTINGS).put({ key, value })
+    tx.oncomplete = () => resolve()
+    tx.onerror = () => reject(tx.error)
+  })
+}
+
+export async function delSetting(key) {
+  const db = await openDB()
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(SETTINGS, 'readwrite')
+    tx.objectStore(SETTINGS).delete(key)
+    tx.oncomplete = () => resolve()
+    tx.onerror = () => reject(tx.error)
   })
 }
 

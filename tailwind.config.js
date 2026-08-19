@@ -36,7 +36,7 @@ export default {
       boxShadow: {
         card: '0 1px 2px rgba(20,20,20,0.05), 0 1px 3px rgba(20,20,20,0.04)',
         lift: '0 6px 20px rgba(20,20,20,0.10)',
-        fab: '0 10px 26px rgba(214,31,32,0.35)',
+        fab: '0 8px 22px rgba(20,20,20,0.18)',
       },
       borderRadius: {
         xl2: '1rem',
