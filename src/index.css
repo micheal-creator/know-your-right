@@ -77,3 +77,13 @@
     @apply font-semibold text-accent underline-offset-2 hover:underline;
   }
 }
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

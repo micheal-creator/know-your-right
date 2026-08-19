@@ -19,9 +19,14 @@ export default {
         },
         warn: '#8A5A00',
         warnsoft: '#FBF1DC',
+        // Redesign tokens
+        forest: { DEFAULT: '#14402A', deep: '#0F3320' },
+        flame: { DEFAULT: '#E4622E', hover: '#CE521F', soft: '#FBE7DC' },
+        danger: { DEFAULT: '#D61F20', hover: '#B81719' },
+        sage: '#5E7468',
       },
       fontFamily: {
-        // Authoritative serif for headings, plain workhorse sans for body.
+        display: ['"Playfair Display"', 'Lora', 'Georgia', 'serif'],
         heading: ['Lora', 'Georgia', 'Cambria', 'Times New Roman', 'serif'],
         sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
       },
@@ -31,9 +36,11 @@ export default {
       boxShadow: {
         card: '0 1px 2px rgba(20,20,20,0.05), 0 1px 3px rgba(20,20,20,0.04)',
         lift: '0 6px 20px rgba(20,20,20,0.10)',
+        fab: '0 10px 26px rgba(214,31,32,0.35)',
       },
       borderRadius: {
         xl2: '1rem',
+        xl3: '1.5rem',
       },
     },
   },
