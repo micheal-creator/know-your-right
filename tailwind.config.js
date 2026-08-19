@@ -20,7 +20,7 @@ export default {
         warn: '#8A5A00',
         warnsoft: '#FBF1DC',
         // Redesign tokens
-        forest: { DEFAULT: '#14402A', deep: '#0F3320' },
+        forest: { DEFAULT: '#0F5132', deep: '#0B4026' },
         flame: { DEFAULT: '#E4622E', hover: '#CE521F', soft: '#FBE7DC' },
         danger: { DEFAULT: '#D61F20', hover: '#B81719' },
         sage: '#5E7468',
