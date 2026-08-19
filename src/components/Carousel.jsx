@@ -65,7 +65,7 @@ export default function Carousel({ items, interval = 4200 }) {
           <Link
             key={it.id}
             to={it.to}
-            className="flex shrink-0 basis-[46%] snap-start flex-col rounded-xl2 bg-flame p-3.5 text-white shadow-card transition-transform active:scale-[0.98]"
+            className="flex shrink-0 basis-[46%] snap-start flex-col rounded-xl2 bg-flame p-3.5 text-white transition-transform active:scale-[0.98]"
           >
             <p className="font-sans text-[14px] font-bold leading-snug">{it.title}</p>
             <p className="mt-1 text-[12px] leading-snug text-white/85">{it.body}</p>

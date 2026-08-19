@@ -97,7 +97,7 @@ export default function TrafficFines() {
             onChange={(e) => setQ(e.target.value)}
             aria-label="Filter offences"
             placeholder="Filter offences… e.g. “phone”, “seat belt”"
-            className="tap w-full rounded-2xl border border-line bg-card py-3 pl-12 pr-4 text-[15px] shadow-card transition-all duration-200 placeholder:text-faint focus:border-accent focus:outline-none focus:ring-4 focus:ring-accent/10"
+            className="tap w-full rounded-2xl border border-line bg-card py-3 pl-12 pr-4 text-[15px] transition-all duration-200 placeholder:text-faint focus:border-accent focus:outline-none"
           />
         </div>
 

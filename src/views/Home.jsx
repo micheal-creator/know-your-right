@@ -25,7 +25,7 @@ function SearchField({ value, onChange, onSubmit }) {
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={SEARCH_PLACEHOLDER}
-        className="tap w-full rounded-full border border-transparent bg-white py-3.5 pl-12 pr-4 text-[15px] text-ink shadow-card placeholder:text-faint focus:border-accent"
+        className="tap w-full rounded-full border border-black/10 bg-white py-3.5 pl-12 pr-4 text-[15px] text-ink placeholder:text-faint focus:border-accent focus:outline-none"
       />
     </form>
   )
@@ -88,7 +88,7 @@ export default function Home() {
       {/* Collapsed sticky bar (slides in on scroll) */}
       <div
         className={
-          'fixed inset-x-0 top-0 z-30 rounded-b-2xl bg-forest px-4 py-3 shadow-lift transition-transform duration-300 ' +
+          'fixed inset-x-0 top-0 z-30 rounded-b-2xl bg-forest px-4 py-3 shadow-[0_12px_24px_-16px_rgba(0,0,0,0.5)] transition-transform duration-300 ' +
           (collapsed ? 'translate-y-0' : '-translate-y-full')
         }
       >

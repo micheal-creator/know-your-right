@@ -117,7 +117,7 @@
     @apply mb-1.5 block text-[13px] font-semibold text-ink;
   }
   .input {
-    @apply w-full rounded-2xl border border-line bg-card px-4 py-3 text-[15px] text-ink transition-all duration-200 placeholder:text-faint focus:border-accent focus:outline-none focus:ring-4 focus:ring-accent/10;
+    @apply w-full rounded-2xl border border-line bg-card px-4 py-3 text-[15px] text-ink transition-all duration-200 placeholder:text-faint focus:border-accent focus:outline-none;
   }
 
   .link-accent {
