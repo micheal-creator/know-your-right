@@ -34,9 +34,9 @@ export default {
         content: '640px',
       },
       boxShadow: {
-        card: '0 1px 2px rgba(20,20,20,0.05), 0 1px 3px rgba(20,20,20,0.04)',
-        lift: '0 6px 20px rgba(20,20,20,0.10)',
-        fab: '0 8px 22px rgba(20,20,20,0.18)',
+        card: '0 1px 2px rgba(16,24,20,0.04), 0 4px 16px rgba(16,24,20,0.05)',
+        lift: '0 10px 30px rgba(16,24,20,0.10), 0 2px 6px rgba(16,24,20,0.06)',
+        fab: '0 10px 24px rgba(20,20,20,0.20)',
       },
       borderRadius: {
         xl2: '1rem',

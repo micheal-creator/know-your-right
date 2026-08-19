@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Icon from '../components/Icon.jsx'
 import Disclaimer from '../components/Disclaimer.jsx'
+import ScreenHeader from '../components/ScreenHeader.jsx'
 import { conversations, myConversations, startConversation } from '../services/support.js'
 import { useCollection } from '../services/useStore.js'
 import { cn } from '../lib/format.js'
@@ -30,16 +31,11 @@ export default function Support() {
 
   return (
     <div className="space-y-6">
-      <header>
-        <div className="mb-2 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-accent-soft text-accent">
-          <Icon name="LifeBuoy" size={22} />
-        </div>
-        <h1 className="text-[24px]">Support</h1>
-        <p className="mt-1 text-muted">
-          A question about the app, a fine, or your rights? Send a message — a real person replies.
-          This is support, not legal advice.
-        </p>
-      </header>
+      <ScreenHeader
+        icon="LifeBuoy"
+        title="Support"
+        subtitle="A question about the app, a fine, or your rights? Send a message — a real person replies. This is support, not legal advice."
+      />
 
       <form onSubmit={start} className="card space-y-3 p-4">
         <p className="font-heading text-[17px] font-semibold">Start a conversation</p>

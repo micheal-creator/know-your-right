@@ -33,7 +33,7 @@ export default function SearchBar({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="tap w-full rounded-xl2 border border-line bg-card py-3.5 pl-12 pr-11 text-base text-ink shadow-card placeholder:text-faint focus:border-accent"
+        className="tap w-full rounded-2xl border border-line bg-card py-3.5 pl-12 pr-11 text-[15px] text-ink shadow-card transition-all duration-200 placeholder:text-faint focus:border-accent focus:outline-none focus:ring-4 focus:ring-accent/10"
       />
       {value ? (
         <button

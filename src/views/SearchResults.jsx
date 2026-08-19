@@ -16,7 +16,7 @@ export default function SearchResults() {
 
   return (
     <div className="space-y-5">
-      <Link to="/" className="inline-flex items-center gap-1 text-sm font-semibold text-muted hover:text-accent">
+      <Link to="/" className="backlink">
         <Icon name="ArrowLeft" size={16} /> Home
       </Link>
 
@@ -25,7 +25,7 @@ export default function SearchResults() {
       {q.trim() === '' ? (
         <p className="text-muted">Type a word to search the Constitution, traffic fines and state powers.</p>
       ) : results.length === 0 ? (
-        <div className="card p-6 text-center">
+        <div className="card p-8 text-center">
           <p className="font-heading text-lg">No results for “{q}”.</p>
           <p className="mt-1 text-sm text-muted">Try a simpler word, or talk to a lawyer.</p>
           <Link to="/hire" className="btn-primary mt-4 inline-flex">

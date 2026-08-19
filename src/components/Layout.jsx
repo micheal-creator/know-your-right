@@ -96,7 +96,7 @@ export default function Layout() {
 
       <nav
         aria-label="Primary"
-        className="fixed inset-x-0 bottom-0 z-20 border-t border-line bg-card"
+        className="fixed inset-x-0 bottom-0 z-20 border-t border-line bg-card/95 backdrop-blur"
         style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
       >
         <div className="container-app grid grid-cols-5 items-end py-2">

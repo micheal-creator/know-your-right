@@ -40,6 +40,7 @@ import {
   ChevronLeft,
   CheckCircle2,
   Settings,
+  Mic,
 } from 'lucide-react'
 
 const MAP = {
@@ -84,6 +85,7 @@ const MAP = {
   ChevronLeft,
   CheckCircle2,
   Settings,
+  Mic,
 }
 
 // Simple line-icon renderer. `name` maps to a lucide icon; everything else is

@@ -40,7 +40,7 @@ export default function AdminLogin() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="tap w-full rounded-xl2 border border-line bg-card px-4 py-3 text-base focus:border-accent"
+              className="tap input"
             />
           </div>
           <div className="space-y-1.5">
@@ -52,7 +52,7 @@ export default function AdminLogin() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="tap w-full rounded-xl2 border border-line bg-card px-4 py-3 text-base focus:border-accent"
+              className="tap input"
             />
           </div>
 

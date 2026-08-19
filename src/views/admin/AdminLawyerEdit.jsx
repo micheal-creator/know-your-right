@@ -5,7 +5,7 @@ import { getLawyer, upsertLawyer, removeLawyer } from '../../services/lawyers.js
 import { ISSUE_CATEGORIES, NIGERIAN_STATES } from '../../data/meta.js'
 import { cn } from '../../lib/format.js'
 
-const inputCls = 'w-full rounded-xl2 border border-line bg-card px-4 py-3 text-base focus:border-accent'
+const inputCls = 'input'
 
 function Field({ label, hint, children }) {
   return (

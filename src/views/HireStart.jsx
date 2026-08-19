@@ -37,7 +37,7 @@ export default function HireStart() {
     <form onSubmit={handleSubmit} className="space-y-6">
       <header>
         <p className="text-[13px] font-semibold uppercase tracking-[0.14em] text-accent">Step 1 of 2</p>
-        <h1 className="mt-1 text-[24px]">Tell us what’s going on</h1>
+        <h1 className="mt-1 section-title text-[24px]">Tell us what’s going on</h1>
         <p className="mt-1 text-muted">
           A few details so we can connect you to the right lawyer. This is a short form — not a chatbot,
           and not automated advice.
@@ -91,7 +91,7 @@ export default function HireStart() {
           id="state"
           value={state}
           onChange={(e) => setState(e.target.value)}
-          className="tap w-full rounded-xl2 border border-line bg-card px-4 py-3 text-base focus:border-accent"
+          className="tap input"
         >
           <option value="">Select your state…</option>
           {NIGERIAN_STATES.map((s) => (
@@ -115,7 +115,7 @@ export default function HireStart() {
           rows={3}
           onChange={(e) => setDescription(e.target.value)}
           placeholder="1–2 sentences. e.g. “FRSC impounded my car at a checkpoint and I’m not sure why.”"
-          className="w-full rounded-xl2 border border-line bg-card px-4 py-3 text-base focus:border-accent"
+          className="input"
         />
         <p className="text-right text-[12px] text-faint">
           {description.length}/{MAX_DESC}
@@ -132,7 +132,7 @@ export default function HireStart() {
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="So the lawyer knows who they’re speaking to"
-          className="tap w-full rounded-xl2 border border-line bg-card px-4 py-3 text-base focus:border-accent"
+          className="tap input"
         />
       </div>
 
@@ -147,7 +147,7 @@ export default function HireStart() {
           value={contact}
           onChange={(e) => setContact(e.target.value)}
           placeholder="e.g. 0803 000 0000 — so a lawyer can reach you"
-          className="tap w-full rounded-xl2 border border-line bg-card px-4 py-3 text-base focus:border-accent"
+          className="tap input"
         />
       </div>
 

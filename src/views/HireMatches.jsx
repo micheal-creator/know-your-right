@@ -128,7 +128,7 @@ export default function HireMatches() {
 
       <header>
         <p className="text-[13px] font-semibold uppercase tracking-[0.14em] text-accent">Step 2 of 2</p>
-        <h1 className="mt-1 text-[24px]">Lawyers for you</h1>
+        <h1 className="mt-1 section-title text-[24px]">Lawyers for you</h1>
         <p className="mt-1 text-muted">
           {issueLabel(issue)}
           {state ? ` · ${state}` : ''}
