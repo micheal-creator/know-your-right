@@ -1,14 +1,13 @@
 import { Link } from 'react-router-dom'
 import Icon from '../components/Icon.jsx'
 import Disclaimer from '../components/Disclaimer.jsx'
-import ScreenHeader from '../components/ScreenHeader.jsx'
 import { ABOUT, APP, PRIVACY } from '../data/meta.js'
 
 function Section({ title, children }) {
   return (
-    <section>
-      <h2 className="font-heading text-[17px] font-semibold text-ink">{title}</h2>
-      <p className="mt-1 text-[15px] leading-relaxed text-muted">{children}</p>
+    <section className="space-y-1.5">
+      <h2 className="text-lg">{title}</h2>
+      <p className="text-[15px] leading-relaxed text-muted">{children}</p>
     </section>
   )
 }
@@ -16,7 +15,13 @@ function Section({ title, children }) {
 export default function About() {
   return (
     <div className="space-y-6">
-      <ScreenHeader icon="Scale" title={`About ${APP.name}`} subtitle={APP.tagline} />
+      <header>
+        <div className="mb-2 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-accent text-white">
+          <Icon name="Scale" size={22} strokeWidth={2} />
+        </div>
+        <h1 className="text-[24px]">About {APP.name}</h1>
+        <p className="mt-1 text-muted">{APP.tagline}</p>
+      </header>
 
       <Disclaimer />
 
@@ -24,17 +29,17 @@ export default function About() {
       <Section title="What it is not">{ABOUT.notWhat}</Section>
       <Section title="Where the content comes from">{ABOUT.sources}</Section>
 
-      <section>
-        <h2 className="font-heading text-[17px] font-semibold text-ink">Your privacy</h2>
-        <p className="mt-1 flex items-start gap-2 text-[15px] leading-relaxed text-muted">
+      <section className="space-y-1.5">
+        <h2 className="text-lg">Your privacy</h2>
+        <p className="flex items-start gap-2 text-[15px] leading-relaxed text-muted">
           <Icon name="ShieldCheck" size={18} className="mt-0.5 shrink-0 text-accent" />
           <span>{PRIVACY}</span>
         </p>
       </section>
 
-      <section>
-        <h2 className="font-heading text-[17px] font-semibold text-ink">Keeping content current</h2>
-        <p className="mt-1 flex items-start gap-2 text-[15px] leading-relaxed text-muted">
+      <section className="space-y-1.5">
+        <h2 className="text-lg">Keeping content current</h2>
+        <p className="flex items-start gap-2 text-[15px] leading-relaxed text-muted">
           <Icon name="Clock" size={18} className="mt-0.5 shrink-0 text-accent" />
           <span>
             Every entry shows a “last verified” date. Anything older than six months is flagged for
@@ -43,10 +48,10 @@ export default function About() {
         </p>
       </section>
 
-      <div className="card p-5">
+      <div className="rounded-xl2 border border-line bg-card p-4">
         <p className="font-heading text-[17px] font-semibold">Need a real lawyer?</p>
         <p className="mt-1 text-sm text-muted">Connect to a vetted lawyer in your state.</p>
-        <Link to="/hire" className="btn-primary mt-4 w-full">
+        <Link to="/hire" className="btn-primary mt-3 w-full">
           <Icon name="Gavel" size={18} /> Hire a lawyer
         </Link>
       </div>
@@ -56,6 +61,7 @@ export default function About() {
         <span className="text-faint"> · </span>
         <Link to="/admin" className="link-accent">Admin console</Link>
       </p>
+
       <p className="text-center text-[12px] text-faint">
         {APP.name} · v{__APP_VERSION__} · Works offline once loaded.
       </p>

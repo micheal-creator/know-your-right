@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Download, Trash2, FolderOpen, FolderCheck, Info, ArrowLeft } from 'lucide-react'
-import ScreenHeader from '../components/ScreenHeader.jsx'
+import { Download, Trash2, FolderOpen, FolderCheck, Info, Mic, ArrowLeft } from 'lucide-react'
 import {
   listRecordings,
   deleteRecording,
@@ -88,16 +87,19 @@ export default function Recordings() {
 
   return (
     <div className="space-y-5">
-      <Link to="/" className="backlink">
+      <Link to="/" className="inline-flex items-center gap-1 text-sm font-semibold text-muted hover:text-accent">
         <ArrowLeft size={16} /> Home
       </Link>
 
-      <ScreenHeader
-        icon="Mic"
-        iconTone="danger"
-        title="Recordings"
-        subtitle="Audio captured by the panic button is saved on this device. Only you can see it here."
-      />
+      <header>
+        <div className="mb-2 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-danger/10 text-danger">
+          <Mic size={22} />
+        </div>
+        <h1 className="text-[24px]">Recordings</h1>
+        <p className="mt-1 text-muted">
+          Audio captured by the panic button is saved on this device. Only you can see it here.
+        </p>
+      </header>
 
       {/* Save location */}
       <section className="card p-4">

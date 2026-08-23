@@ -18,7 +18,8 @@ function Field({ label, hint, children }) {
   )
 }
 
-const inputCls = 'input'
+const inputCls =
+  'w-full rounded-xl2 border border-line bg-card px-4 py-3 text-base focus:border-accent'
 
 export default function AdminContentEdit() {
   const { id } = useParams()
