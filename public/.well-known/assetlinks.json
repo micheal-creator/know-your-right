@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "io.github.micheal_creator.twa",
+      "sha256_cert_fingerprints": [
+        "42:07:8B:B5:B8:0A:C0:32:A3:94:63:1B:5F:F0:A7:0C:48:72:52:02:E1:60:C4:74:B1:D5:3C:88:F0:2B:5B:FB"
+      ]
+    }
+  }
+]
