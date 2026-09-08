@@ -8,14 +8,47 @@
 import { CONSTITUTION } from '../data/constitution.js'
 import { POWERS } from '../data/powers.js'
 import { TRAFFIC_ENTRIES } from '../data/traffic.js'
+import { TENANCY } from '../data/tenancy.js'
+import { EMPLOYMENT } from '../data/employment.js'
+import { CONSUMER } from '../data/consumer.js'
+import { BUSINESS } from '../data/business.js'
 import { normalize } from '../lib/format.js'
 import { createCollection, today } from '../services/local.js'
 
+// Bump when new seed content is shipped so returning users receive it.
+const SEED_VERSION = 2
+
 function seed() {
-  return [...CONSTITUTION, ...POWERS, ...TRAFFIC_ENTRIES]
+  return [
+    ...CONSTITUTION,
+    ...POWERS,
+    ...TRAFFIC_ENTRIES,
+    ...TENANCY,
+    ...EMPLOYMENT,
+    ...CONSUMER,
+    ...BUSINESS,
+  ]
 }
 
 export const entries = createCollection('kyr:cms:entries:v1', seed)
+
+// One-time, non-destructive merge: append any newly shipped seed entries that
+// aren't already stored, without overwriting admin edits or re-adding entries
+// the user has since removed (guarded by a stored seed version).
+;(function mergeNewSeed() {
+  try {
+    const stored = Number(localStorage.getItem('kyr:cms:seedVersion') || '1')
+    if (stored < SEED_VERSION) {
+      const current = entries.all()
+      const ids = new Set(current.map((e) => e.id))
+      const additions = seed().filter((e) => !ids.has(e.id))
+      if (additions.length) entries.replaceAll([...current, ...additions])
+      localStorage.setItem('kyr:cms:seedVersion', String(SEED_VERSION))
+    }
+  } catch {
+    /* ignore */
+  }
+})()
 
 export function getEntries() {
   return entries.all()

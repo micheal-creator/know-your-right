@@ -28,28 +28,28 @@ export const CATEGORIES = [
     title: 'Tenancy & Housing',
     blurb: 'Rent, eviction and landlord–tenant rules.',
     icon: 'Home',
-    ready: false,
+    ready: true,
   },
   {
     id: 'employment',
     title: 'Employment',
     blurb: 'Contracts, termination and workers’ rights.',
     icon: 'Briefcase',
-    ready: false,
+    ready: true,
   },
   {
     id: 'business',
     title: 'Business & CAC',
     blurb: 'Registering and running a business.',
     icon: 'Building2',
-    ready: false,
+    ready: true,
   },
   {
     id: 'consumer',
     title: 'Consumer Rights',
     blurb: 'Faulty goods, refunds and services.',
     icon: 'ShoppingBag',
-    ready: false,
+    ready: true,
   },
 ]
 
