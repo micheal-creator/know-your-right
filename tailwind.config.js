@@ -13,17 +13,21 @@ export default {
         faint: '#8A8F89',
         line: '#E6E5DF',
         accent: {
-          DEFAULT: '#0F5132',
-          hover: '#0B4026',
-          soft: '#E7F0EA',
+          DEFAULT: 'rgb(var(--kyr-accent) / <alpha-value>)',
+          hover: 'rgb(var(--kyr-accent-hover) / <alpha-value>)',
+          soft: 'rgb(var(--kyr-accent-soft) / <alpha-value>)',
         },
         warn: '#8A5A00',
         warnsoft: '#FBF1DC',
         // Redesign tokens
-        forest: { DEFAULT: '#0F5132', deep: '#0B4026' },
+        forest: {
+          DEFAULT: 'rgb(var(--kyr-accent) / <alpha-value>)',
+          deep: 'rgb(var(--kyr-accent-hover) / <alpha-value>)',
+        },
         flame: { DEFAULT: '#E4622E', hover: '#CE521F', soft: '#FBE7DC' },
         danger: { DEFAULT: '#D61F20', hover: '#B81719' },
         sage: '#5E7468',
+        cloud: '#F3F4F6',
       },
       fontFamily: {
         display: ['"Playfair Display"', 'Lora', 'Georgia', 'serif'],

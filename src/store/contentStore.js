@@ -14,6 +14,7 @@ import { CONSUMER } from '../data/consumer.js'
 import { BUSINESS } from '../data/business.js'
 import { normalize } from '../lib/format.js'
 import { createCollection, today } from '../services/local.js'
+import { hasSupabase, loadCollection, saveCollection } from '../services/supabaseSync.js'
 
 // Bump when new seed content is shipped so returning users receive it.
 const SEED_VERSION = 2
@@ -54,6 +55,21 @@ export function getEntries() {
   return entries.all()
 }
 
+// Supabase sync: hydrate the cache from the DB, and write admin edits back.
+let entriesSaveTimer
+function persistEntries() {
+  if (!hasSupabase) return
+  clearTimeout(entriesSaveTimer)
+  entriesSaveTimer = setTimeout(() => saveCollection('entries', entries.all()).catch(() => {}), 500)
+}
+if (hasSupabase) {
+  loadCollection('entries')
+    .then((rows) => {
+      if (rows && rows.length) entries.replaceAll(rows)
+    })
+    .catch(() => {})
+}
+
 export function getEntry(id) {
   return entries.get(id)
 }
@@ -68,15 +84,19 @@ export function getTraffic() {
 
 export function upsertEntry(entry) {
   const record = { ...entry, lastVerified: entry.lastVerified || today() }
-  return entries.upsert(record)
+  const result = entries.upsert(record)
+  persistEntries()
+  return result
 }
 
 export function deleteEntry(id) {
   entries.remove(id)
+  persistEntries()
 }
 
 export function resetEntries() {
   entries.replaceAll(seed())
+  persistEntries()
 }
 
 // Lightweight ranked local search across title, reference, summary and tags.

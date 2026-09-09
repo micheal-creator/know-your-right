@@ -5,6 +5,10 @@
 @layer base {
   :root {
     color-scheme: light;
+    /* Accent theme (overridden at runtime by settings.applyTheme) */
+    --kyr-accent: 15 81 50;
+    --kyr-accent-hover: 11 64 38;
+    --kyr-accent-soft: 231 240 234;
   }
 
   html {
