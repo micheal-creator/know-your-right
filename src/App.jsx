@@ -23,6 +23,7 @@ import AdminLawyerEdit from './views/admin/AdminLawyerEdit.jsx'
 import AdminCases from './views/admin/AdminCases.jsx'
 import AdminSupport from './views/admin/AdminSupport.jsx'
 import AdminSettings from './views/admin/AdminSettings.jsx'
+import AdminTeam from './views/admin/AdminTeam.jsx'
 
 export default function App() {
   return (
@@ -57,6 +58,7 @@ export default function App() {
         <Route path="support" element={<AdminSupport />} />
         <Route path="support/:id" element={<AdminSupport />} />
         <Route path="settings" element={<AdminSettings />} />
+        <Route path="admins" element={<AdminTeam />} />
       </Route>
     </Routes>
   )

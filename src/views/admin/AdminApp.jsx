@@ -14,6 +14,7 @@ const NAV = [
   { to: '/admin/lawyers', label: 'Lawyers', icon: 'Users' },
   { to: '/admin/cases', label: 'Cases', icon: 'Inbox' },
   { to: '/admin/support', label: 'Support', icon: 'MessageSquare' },
+  { to: '/admin/admins', label: 'Admins', icon: 'ShieldCheck' },
   { to: '/admin/settings', label: 'Settings', icon: 'Settings' },
 ]
 
